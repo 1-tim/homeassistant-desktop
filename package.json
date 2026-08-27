@@ -1,0 +1,41 @@
+{
+  "name": "homeassistant-desktop",
+  "productName": "Home Assistant",
+  "version": "1.1.0",
+  "description": "Open-source desktop wrapper for a self-hosted Home Assistant instance.",
+  "main": "main.js",
+  "author": "serenity",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "io.etimmy.homeassistant",
+    "productName": "Home Assistant",
+    "compression": "maximum",
+    "electronLanguages": ["en-US"],
+    "files": [
+      "main.js",
+      "preload.js",
+      "config.json",
+      "assets/**"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Home Assistant"
+    }
+  },
+  "devDependencies": {
+    "electron": "^44.0.0",
+    "electron-builder": "^26.15.3"
+  }
+}
